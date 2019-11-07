@@ -6,6 +6,7 @@ import org.fasttrackit.travelplatform.persistence.Product;
 import org.fasttrackit.travelplatform.transfer.product.SaveProductRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,13 +32,28 @@ public class ProductService {
         product.setQuantity(request.getQuantity());
         product.setImagePath(request.getImagePath());
 
-       return productRepository.save(product);
+        return productRepository.save(product);
     }
 
     public Product getProduct(long id) {
-        LOGGER.info("Retriving product {}",id);
+        LOGGER.info("Retriving product {}", id);
 
         return productRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Product " + id + " not found."));
+    }
+
+    public Product updateProduct(long id, SaveProductRequest request) {
+        LOGGER.info("Updating product {}: {}", id, request);
+
+        Product product = getProduct(id);
+
+        BeanUtils.copyProperties(request, product);
+
+        return productRepository.save(product);
+    }
+
+    public void deleteProduct(long id) {
+        LOGGER.info("Deleting product {}", id);
+        productRepository.deleteById(id);
     }
 }
