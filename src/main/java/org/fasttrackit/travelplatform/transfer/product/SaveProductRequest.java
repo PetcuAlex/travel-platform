@@ -1,19 +1,8 @@
-package org.fasttrackit.travelplatform.persistence;
-
+package org.fasttrackit.travelplatform.transfer.product;
 
 import com.sun.istack.NotNull;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-
-@Entity
-public class Product {
-
-    @Id
-    @GeneratedValue
-    private long id;
-
+public class SaveProductRequest {
 
     @NotNull
     private String name;
@@ -23,14 +12,6 @@ public class Product {
     private double price;
     private String description;
     private String imagePath;
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;
@@ -74,9 +55,8 @@ public class Product {
 
     @Override
     public String toString() {
-        return "Product{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
+        return "SaveProductRequest{" +
+                "name='" + name + '\'' +
                 ", quantity=" + quantity +
                 ", price=" + price +
                 ", description='" + description + '\'' +
