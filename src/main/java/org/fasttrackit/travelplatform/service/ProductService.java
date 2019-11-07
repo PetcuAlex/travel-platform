@@ -1,5 +1,6 @@
 package org.fasttrackit.travelplatform.service;
 
+import org.fasttrackit.travelplatform.exception.ResourceNotFoundException;
 import org.fasttrackit.travelplatform.persistance.ProductRepository;
 import org.fasttrackit.travelplatform.persistence.Product;
 import org.fasttrackit.travelplatform.transfer.product.SaveProductRequest;
@@ -31,5 +32,12 @@ public class ProductService {
         product.setImagePath(request.getImagePath());
 
        return productRepository.save(product);
+    }
+
+    public Product getProduct(long id) {
+        LOGGER.info("Retriving product {}",id);
+
+        return productRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Product " + id + " not found."));
     }
 }

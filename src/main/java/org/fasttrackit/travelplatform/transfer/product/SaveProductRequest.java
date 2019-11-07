@@ -4,7 +4,7 @@ import com.sun.istack.NotNull;
 
 public class SaveProductRequest {
 
-    @NotNull
+
     private String name;
     @NotNull
     private int quantity;
