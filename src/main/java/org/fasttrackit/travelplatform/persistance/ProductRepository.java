@@ -1,6 +1,6 @@
 package org.fasttrackit.travelplatform.persistance;
 
-import org.fasttrackit.travelplatform.persistence.Product;
+import org.fasttrackit.travelplatform.domain.Product;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

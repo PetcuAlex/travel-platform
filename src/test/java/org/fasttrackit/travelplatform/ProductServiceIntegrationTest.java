@@ -1,7 +1,7 @@
 package org.fasttrackit.travelplatform;
 
 import org.fasttrackit.travelplatform.exception.ResourceNotFoundException;
-import org.fasttrackit.travelplatform.persistence.Product;
+import org.fasttrackit.travelplatform.domain.Product;
 import org.fasttrackit.travelplatform.service.ProductService;
 import org.fasttrackit.travelplatform.transfer.product.SaveProductRequest;
 import org.junit.Test;
@@ -24,6 +24,7 @@ public class ProductServiceIntegrationTest {
 
     @Test
     public void testCreateProduct_whenValidRequest_thenReturnCreatedProduct(){
+
         createProduct();
     }
 

@@ -2,7 +2,7 @@ package org.fasttrackit.travelplatform.service;
 
 import org.fasttrackit.travelplatform.exception.ResourceNotFoundException;
 import org.fasttrackit.travelplatform.persistance.ProductRepository;
-import org.fasttrackit.travelplatform.persistence.Product;
+import org.fasttrackit.travelplatform.domain.Product;
 import org.fasttrackit.travelplatform.transfer.product.GetProductsRequest;
 import org.fasttrackit.travelplatform.transfer.product.SaveProductRequest;
 import org.slf4j.Logger;

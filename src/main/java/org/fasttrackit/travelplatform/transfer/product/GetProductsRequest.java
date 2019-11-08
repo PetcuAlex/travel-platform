@@ -1,8 +1,12 @@
 package org.fasttrackit.travelplatform.transfer.product;
 
+import com.sun.istack.NotNull;
+
 public class GetProductsRequest {
 
+    @NotNull
     private String partialName;
+    @NotNull
     private Integer minimumQuantity;
 
     public String getPartialName() {

@@ -1,4 +1,4 @@
-package org.fasttrackit.travelplatform.persistence;
+package org.fasttrackit.travelplatform.domain;
 
 
 import com.sun.istack.NotNull;
