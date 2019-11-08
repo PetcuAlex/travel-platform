@@ -3,6 +3,7 @@ package org.fasttrackit.travelplatform;
 
 import org.fasttrackit.travelplatform.domain.Customer;
 import org.fasttrackit.travelplatform.service.CustomerService;
+import org.fasttrackit.travelplatform.steps.CustomerSteps;
 import org.fasttrackit.travelplatform.transfer.customer.SaveCustomerRequest;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -22,18 +23,11 @@ public class CustomerServiceIntegrationTests {
     @Autowired
     private CustomerService customerService;
 
+    @Autowired
+    private CustomerSteps customerSteps;
+
     @Test
     public void testCreateCustomer_whenValidRequest_thenReturnCustomer() {
-        SaveCustomerRequest request = new SaveCustomerRequest();
-        request.setFirstName("CustomerFirstName");
-        request.setLastName("CustomerLastName");
-
-        Customer customer = customerService.createCustomer(request);
-
-        assertThat(customer, notNullValue());
-        assertThat(customer.getId(), notNullValue());
-        assertThat(customer.getId(), greaterThan(0L));
-        assertThat(customer.getFirstName(), is(request.getFirstName()));
-        assertThat(customer.getLastName(), is(request.getLastName()));
+       customerSteps.createCustomer();
     }
 }
